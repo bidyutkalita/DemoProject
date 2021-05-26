@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:hibernate.properties</value>
+		</property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+	<!-- 	<property name="packagesToScan"	value="com.eot.entity" /> -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.cache.use_second_level_cache">${hibernate.cache.use_second_level_cache}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory</prop>
+				<prop key="hibernate.cache.provider_class">net.sf.ehcache.hibernate.EhCacheProvider</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/eot/entity/Account.hbm.xml</value>
+				<value>com/eot/entity/AccountBook.hbm.xml</value>
+				<value>com/eot/entity/AccountHead.hbm.xml</value>
+				<value>com/eot/entity/AccountHeadMapping.hbm.xml</value>
+				<value>com/eot/entity/AppConfigurations.hbm.xml</value>
+				<value>com/eot/entity/AppMaster.hbm.xml</value>
+				<value>com/eot/entity/Bank.hbm.xml</value>
+				<value>com/eot/entity/BankAgreementModel.hbm.xml</value>
+				<value>com/eot/entity/BankGroup.hbm.xml</value>
+				<value>com/eot/entity/Biller.hbm.xml</value>
+				<value>com/eot/entity/BillerTypes.hbm.xml</value>
+				<value>com/eot/entity/Branch.hbm.xml</value>
+				<value>com/eot/entity/City.hbm.xml</value>
+				<value>com/eot/entity/ClearingHousePool.hbm.xml</value>
+				<value>com/eot/entity/ClearingHousePoolMember.hbm.xml</value>
+				<value>com/eot/entity/Country.hbm.xml</value>
+				<value>com/eot/entity/CountryNames.hbm.xml</value>
+				<value>com/eot/entity/Currency.hbm.xml</value>
+				<value>com/eot/entity/Customer.hbm.xml</value>
+				<value>com/eot/entity/CustomerAccount.hbm.xml</value>
+				<value>com/eot/entity/CustomerCard.hbm.xml</value>
+				<value>com/eot/entity/CustomerDocument.hbm.xml</value>
+				<value>com/eot/entity/CustomerProfiles.hbm.xml</value>
+				<value>com/eot/entity/CustomerSecurityAnswer.hbm.xml</value>
+				<value>com/eot/entity/ExchangeRate.hbm.xml</value>
+				<value>com/eot/entity/JournalTemplate.hbm.xml</value>
+				<value>com/eot/entity/Merchant.hbm.xml</value>
+				<value>com/eot/entity/MerchantCategory.hbm.xml</value>
+				<value>com/eot/entity/MobileRequest.hbm.xml</value>
+				<value>com/eot/entity/MobileRequestArchive.hbm.xml</value>
+				<value>com/eot/entity/Operator.hbm.xml</value>
+				<value>com/eot/entity/OperatorDenomination.hbm.xml</value>
+				<value>com/eot/entity/OperatorVoucher.hbm.xml</value>
+				<value>com/eot/entity/Outlet.hbm.xml</value>
+				<value>com/eot/entity/Quarter.hbm.xml</value>
+				<value>com/eot/entity/ScapplicableTime.hbm.xml</value>
+				<value>com/eot/entity/SecurityQuestion.hbm.xml</value>
+				<value>com/eot/entity/ServiceChargeRule.hbm.xml</value>
+				<value>com/eot/entity/ServiceChargeRuleTxn.hbm.xml</value>
+				<value>com/eot/entity/ServiceChargeRuleValue.hbm.xml</value>
+				<value>com/eot/entity/ServiceChargeSplit.hbm.xml</value>
+				<value>com/eot/entity/SettlementBatch.hbm.xml</value>
+				<value>com/eot/entity/SettlementBatchDetail.hbm.xml</value>
+				<value>com/eot/entity/SettlementJournal.hbm.xml</value>
+				<value>com/eot/entity/StakeHolder.hbm.xml</value>
+				<value>com/eot/entity/Payee.hbm.xml</value>
+				<value>com/eot/entity/PendingTransaction.hbm.xml</value>
+				<value>com/eot/entity/Terminal.hbm.xml</value>
+				<value>com/eot/entity/TimeZone.hbm.xml</value>
+				<value>com/eot/entity/Transaction.hbm.xml</value>
+				<value>com/eot/entity/TransactionJournal.hbm.xml</value>
+				<value>com/eot/entity/TransactionRule.hbm.xml</value>
+				<value>com/eot/entity/TransactionRuleTxn.hbm.xml</value>
+				<value>com/eot/entity/TransactionRuleValues.hbm.xml</value>
+				<value>com/eot/entity/TransactionType.hbm.xml</value>
+				<value>com/eot/entity/TransactionTypesDesc.hbm.xml</value>
+				<value>com/eot/entity/Version.hbm.xml</value>
+				<value>com/eot/entity/VersionDetails.hbm.xml</value>
+				<value>com/eot/entity/WebUser.hbm.xml</value>
+				<value>com/eot/entity/WebUserRole.hbm.xml</value>
+				<value>com/eot/entity/WebRequest.hbm.xml</value>
+				<value>com/eot/entity/CustomerBankAccount.hbm.xml</value>
+				<value>com/eot/entity/ExternalTransaction.hbm.xml</value>
+				<value>com/eot/entity/ISOMsgLog.hbm.xml</value>
+				<value>com/eot/entity/LoginLeftMenu.hbm.xml</value>
+				<value>com/eot/entity/LoginMenuVisibility.hbm.xml</value>
+				<value>com/eot/entity/LoginPrivilegeMapping.hbm.xml</value>
+				<value>com/eot/entity/LoginSubMenu.hbm.xml</value>
+				<value>com/eot/entity/LoginTopMenu.hbm.xml</value>
+				<value>com/eot/entity/LocationType.hbm.xml</value>
+				<value>com/eot/entity/LocateUS.hbm.xml</value>
+				<value>com/eot/entity/CustomerSmsRuleDetail.hbm.xml</value>
+				<value>com/eot/entity/SmsAlertRule.hbm.xml</value>
+				<value>com/eot/entity/SmsAlertRulesTxn.hbm.xml</value>
+				<value>com/eot/entity/SmsAlertRuleValue.hbm.xml</value>
+				<value>com/eot/entity/CustomerScsubscription.hbm.xml</value>
+				<value>com/eot/entity/ServiceChargeSubscription.hbm.xml</value>
+				<value>com/eot/entity/NetworkType.hbm.xml</value>
+				<value>com/eot/entity/LocateUsNetworkTypeMapping.hbm.xml</value>
+				<value>com/eot/entity/CurrencyConverter.hbm.xml</value>
+				<value>com/eot/entity/Commission.hbm.xml</value>
+				 <value>com/eot/entity/BusinessPartner.hbm.xml</value>
+				<value>com/eot/entity/BusinessPartnerUser.hbm.xml</value>
+				<value>com/eot/entity/KycType.hbm.xml</value>
+				<value>com/eot/entity/CustomerProfileType.hbm.xml</value>
+				<value>com/eot/entity/RemittanceTransaction.hbm.xml</value>
+				<value>com/eot/entity/CommisionSplits.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+<!-- 	<bean id="dataSource"
+	class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+	<property name="url" value="jdbc:mysql://localhost:3306/mgurush" />
+	<property name="username" value="root" />
+	<property name="password" value="root" />
+	</bean> -->
+
+	<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+		<property name="driverClassName" value="${hibernate.connection.driver_class}" />
+		<property name="url" value="${hibernate.connection.url}" />
+		<property name="username" value="${hibernate.connection.username}" />
+		<property name="password" value="${hibernate.connection.password}" />
+		
+	</bean>
+		<bean id="txManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+</beans>
