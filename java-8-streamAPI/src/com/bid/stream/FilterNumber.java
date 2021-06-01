@@ -21,6 +21,8 @@ public class FilterNumber {
 		List output =stream.filter((n)-> {return n%2==0;}).collect(Collectors.toList());
 		System.out.println(output);
 		
+		lst.stream().filter((n)->  n%2==1).forEach(System.out::println);
+		
 	}
 
 }
